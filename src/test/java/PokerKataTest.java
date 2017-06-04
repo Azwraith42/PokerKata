@@ -19,8 +19,16 @@ public class PokerKataTest {
 		assertEquals("tie", output);
 	}
 	
-//	@Test
-//	public void blackWinsWhenWhiteHasNothing(){
-//		
-//	}
+	@Test
+	public void blackWinsWhenWhiteHasNothing(){
+		//given
+		final String black = "Black: KD";
+		final String white = "";
+		
+		//when
+		final String output = PokerKata.compareHands(black, white);
+		
+		//then
+		assertEquals("Black wins. - with high card: King", output);
+	}
 }
