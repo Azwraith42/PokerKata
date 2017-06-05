@@ -31,4 +31,30 @@ public class PokerKataTest {
 		//then
 		assertEquals("Black wins. - with high card: King", output);
 	}
+	
+	@Test
+	public void whiteWinsWithBetterHighCard(){
+		//given
+		final String black = "Black: JH";
+		final String white = "White: AD";
+		
+		//when
+		final String output = PokerKata.compareHands(black, white);
+		
+		//then
+		assertEquals("White wins. - with high card: Ace", output);
+	}
+	
+	@Test
+	public void whiteBeatsBlackWithPair(){
+		//given
+		final String black = "Black: AC";
+		final String white = "White: 2H 2D";
+		
+		//when
+		final String output = PokerKata.compareHands(black, white);
+		
+		//then
+		assertEquals("White wins. - with pair: 2", output);
+	}
 }
