@@ -59,6 +59,7 @@ public class PokerHand {
 		int bestCardValue = 0;
 		String bestCardName = "";
 		int mostOfACard = 0;
+		int mostOfACardValue = 0;
 		String mostOfACardName = "";
 		
 		for(Map.Entry<Character, Integer> entry : handValues.entrySet()){
@@ -71,12 +72,14 @@ public class PokerHand {
 			}
 			if(value > mostOfACard){
 				mostOfACard = value;
+				mostOfACardValue = cardValue(key);
 				mostOfACardName = cardName(key);
 			}
 		}
 		
 		if(mostOfACard == 2){
 			this.bestCard = mostOfACardName;
+			this.highCardScore = mostOfACardValue;
 			this.bestHand = "pair: ";
 			return 2;
 		}
@@ -89,78 +92,6 @@ public class PokerHand {
 		}
 		
 		return 0;
-		
-//		if(playerHand[0] != null){
-//			
-//			switch(playerHand[0].charAt(0)){
-//			case 'A':
-//				this.bestCard = "Ace";
-//				this.highCardScore = 14;
-//				this.bestHand = "high card: ";
-//				break;
-//			case 'K':
-//				this.bestCard = "King";
-//				this.highCardScore = 13;
-//				this.bestHand = "high card: ";
-//				break;
-//			case 'Q':
-//				this.bestCard = "Queen";
-//				this.highCardScore = 12;
-//				this.bestHand = "high card: ";
-//				break;
-//			case 'J':
-//				this.bestCard = "Jack";
-//				this.highCardScore = 11;
-//				this.bestHand = "high card: ";
-//				break;
-//			case 'T':
-//				this.bestCard = "10";
-//				this.highCardScore = 10;
-//				this.bestHand = "high card: ";
-//				break;
-//			case '9':
-//				this.bestCard = "9";
-//				this.highCardScore = 9;
-//				this.bestHand = "high card: ";
-//				break;
-//			case '8':
-//				this.bestCard = "8";
-//				this.highCardScore = 8;
-//				this.bestHand = "high card: ";
-//				break;
-//			case '7':
-//				this.bestCard = "7";
-//				this.highCardScore = 7;
-//				this.bestHand = "high card: ";
-//				break;
-//			case '6':
-//				this.bestCard = "6";
-//				this.highCardScore = 6;
-//				this.bestHand = "high card: ";
-//				break;
-//			case '5':
-//				this.bestCard = "5";
-//				this.highCardScore = 5;
-//				this.bestHand = "high card: ";
-//				break;
-//			case '4':
-//				this.bestCard = "4";
-//				this.highCardScore = 4;
-//				this.bestHand = "high card: ";
-//				break;
-//			case '3':
-//				this.bestCard = "3";
-//				this.highCardScore = 3;
-//				this.bestHand = "high card: ";
-//				break;
-//			case '2':
-//				this.bestCard = "2";
-//				this.highCardScore = 2;
-//				this.bestHand = "high card: ";
-//				break;
-//			}
-//			return 1;
-//		}
 	}
 	
 	private int cardValue(char card){
